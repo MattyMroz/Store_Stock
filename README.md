@@ -1,13 +1,15 @@
 # Projekt Store Stock - Online Store Stock Photo
 
-BAZA DANYCH
+
+## BAZA DANYCH
 store_stock_db
 
 PHPMyAdmin (http://localhost/phpmyadmin)
 
 http:/store_stock
 
-ADMIN
+
+## ADMIN
 http:/store_stock/admin
 
 user: admin
@@ -15,10 +17,11 @@ user: admin
 pass: admin123
 
 
-ONLINE
+
+## ONLINE
 https://mateuszmroz.ct8.pl/
 
-BAZA DANYCH
+## BAZA DANYCH
 https://pma.ct8.pl/
 
 Baza: m31577_store_stock
@@ -27,7 +30,8 @@ Login: m31577_store
 
 Hasło: Storestock7
 
-ADMIN
+
+## ADMIN
 
 https://mateuszmroz.ct8.pl/admin
 
