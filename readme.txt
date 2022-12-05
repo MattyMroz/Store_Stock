@@ -1,4 +1,4 @@
-Projekt Store Stock - Online Store Stock Photo
+#Projekt Store Stock - Online Store Stock Photo
 
 BAZA DANYCH
 store_stock_db
@@ -9,8 +9,6 @@ ADMIN
 http:/store_stock/admin
 user: admin
 pass: admin123
-
-
 
 
 ONLINE
