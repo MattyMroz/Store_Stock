@@ -1,4 +1,5 @@
 <?php
+// poniższy kod loguję sie do bazy danych
 if (!defined('DB_SERVER')) {
     require_once("../initialize.php");
 }

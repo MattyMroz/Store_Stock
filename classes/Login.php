@@ -1,5 +1,6 @@
 <?php
 require_once '../config.php';
+// poniższa klasa odpowiedzialna jest za logowanie i wylogowywanie się
 class Login extends DBConnection
 {
 	private $settings;

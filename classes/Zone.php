@@ -1,5 +1,6 @@
 <?php
 require_once('../config.php');
+// klasa odpowiedzialna za zarządzanie zonami
 class Zone extends DBConnection
 {
 	private $settings;

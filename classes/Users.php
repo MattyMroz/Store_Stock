@@ -1,5 +1,6 @@
 <?php
 require_once('../config.php');
+// klasa odpowiedzialna za zarządzanie użytkownikami
 class Users extends DBConnection
 {
 	private $settings;

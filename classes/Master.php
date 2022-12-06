@@ -1,5 +1,6 @@
 <?php
 require_once('../config.php');
+// klasa obsługująca wszystkie funkcje w admin panelu
 class Master extends DBConnection
 {
 	private $settings;
