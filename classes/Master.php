@@ -411,6 +411,7 @@ class Master extends DBConnection
 	{
 		extract($_POST);
 		$client_id = $this->settings->userdata('id');
+		$client_email = $this->settings->userdata('email');	
 
 		$data = " client_id = '{$client_id}' ";
 		$data .= " ,payment_method = '{$payment_method}' ";
@@ -442,7 +443,7 @@ class Master extends DBConnection
 				$save_sales = $this->conn->query("INSERT INTO `sales` set $data");
 				if ($this->capture_err())
 					return $this->capture_err();
-				$resp['status'] = 'success';
+				$resp['status'] = 'success';				
 			} else {
 				$resp['status'] = 'failed';
 				$resp['err_sql'] = $save_olist;
@@ -451,6 +452,32 @@ class Master extends DBConnection
 			$resp['status'] = 'failed';
 			$resp['err_sql'] = $save_order;
 		}
+
+		include '../PHPMailer/PHPMailerAutoload.php';
+		$ct8mail = 'aracrooz@aracrooz.ct8.pl'; //<- mail najlepiej z hostingu
+		$ct8passwd = 'Adrianzalewski1'; //<- haslo
+		$mail = new PHPMailer;  
+		$mail->isSMTP();                            
+		$mail->Host = 's1.ct8.pl';           
+		$mail->SMTPAuth = true;                     
+		$mail->Username = $ct8mail;
+		$mail->Password = $ct8passwd;
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port = 465;                         
+		$mail->setFrom($ct8mail, 'Image Store'); 
+		$mail->addReplyTo($ct8mail, 'Image Store');  
+		$mail->addAddress($client_email); 
+		$mail->isHTML(true);  
+		$mail->Subject = 'Image Store Order Confirmation';  
+		$bodyContent = '<h1>We\'ve recieved your order</h1>'; 
+		$bodyContent .= '<p>Thank you for your order. Your order has been received and will be processed shortly.</p>'; 
+		$mail->Body    = $bodyContent; 
+		if(!$mail->send()) { 
+			//echo 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo; 
+		} else { 
+			//echo 'Message has been sent.'; 
+		}
+
 		return json_encode($resp);
 	}
 	function update_order_status()
