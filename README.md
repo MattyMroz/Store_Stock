@@ -39,4 +39,3 @@ admin
 
 admin123
 
-Na razie nie ma widoków i tranzakcji ;)
